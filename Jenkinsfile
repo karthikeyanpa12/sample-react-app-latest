@@ -6,8 +6,9 @@ pipeline {
     stages {
         stage('Build and Push') {
             steps {
-                sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
-	            echo 'Login Completed'
+             //    sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
+	            // echo 'Login Completed'
+		    echo $DOCKERHUB_CREDENTIALS
 
                 // script {
                 //     if (env.BRANCH_NAME == 'dev') {
