@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build and Push') {
             steps {
-		    echo 'login'
+		    echo 'login  '
              //    sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
 	            // echo 'Login Completed'
 		    // echo $DOCKERHUB_CREDENTIALS
