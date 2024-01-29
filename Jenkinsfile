@@ -6,7 +6,21 @@ pipeline {
     stages {
         stage('Build and Push') {
             steps {
-		    echo 'login  '
+		  script {
+                    // Define the credentials ID associated with your Docker Hub credentials
+                    def dockerHubCredentialsId = 'dockerhub'
+
+                    // Use the 'withCredentials' step to securely access the credentials
+                    withCredentials([usernamePassword(credentialsId: dockerHubCredentialsId, usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                        // Within this block, DOCKER_USERNAME and DOCKER_PASSWORD are available
+                        def dockerUsername = env.DOCKER_USERNAME
+                        def dockerPassword = env.DOCKER_PASSWORD
+
+                        // Use dockerUsername and dockerPassword in your Docker commands
+                        sh "docker login -u ${dockerUsername} -p ${dockerPassword}"
+
+                        // Additional Docker-related commands here
+                    }
              //    sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
 	            // echo 'Login Completed'
 		    // echo $DOCKERHUB_CREDENTIALS
