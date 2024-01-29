@@ -17,8 +17,10 @@ pipeline {
                         def dockerPassword = env.DOCKER_PASSWORD
 
                         // Use dockerUsername and dockerPassword in your Docker commands
-                        sh "docker login -u ${dockerUsername} -p ${dockerPassword}"
+
 			sh 'docker build -t react-app-react-app .'
+                        sh "docker login -u ${dockerUsername} -p ${dockerPassword}"
+			
                         sh 'docker tag react-app-react-app  karthikeyanpa/dev:2.0'
                         sh 'docker push karthikeyanpa/dev:2.0'
                         // Additional Docker-related commands here
