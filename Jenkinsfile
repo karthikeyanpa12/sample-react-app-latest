@@ -21,6 +21,7 @@ pipeline {
 
                         // Additional Docker-related commands here
                     }
+		  }
              //    sh 'echo $DOCKERHUB_CREDENTIALS_PSW |  sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
 	            // echo 'Login Completed'
 		    // echo $DOCKERHUB_CREDENTIALS
